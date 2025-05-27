@@ -44,34 +44,54 @@ body, html {
 }
 
 .main-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
+  /* font-family: 'Playfair Display', serif; */
+  /* font-family: "Ballet", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal; */
+
+  font-family: "Luxurious Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+
+
+  font-size: 7rem;
   margin-bottom: 0.5rem;
+  color: #FFF89A;
+  margin-bottom: 0;
 }
 
 .subtitle {
   font-size: 1rem;
   letter-spacing: 1px;
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 0.2rem;
+  font-family: "Lora", serif;
+  color: #FFF89A;
+  margin-top: 0;
 }
 
 .role {
-  font-size: 1.2rem;
-  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  /* font-family: 'Playfair Display', serif; */
+  font-family: "Lora", serif;
+  font-weight: 100;
   margin-bottom: 2rem;
+  color: #FFF89A;
+  margin-top: 0;
 }
 
 .social-button {
   display: block;
+  font-family: "Lora", serif;
   background-color: black;
   color: white;
-  text-decoration: underline;
+  text-decoration: none;
   text-align: center;
   padding: 1rem;
   margin: 0.5rem auto;
   border-radius: 2rem;
-  font-weight: bold;
+  font-weight: Normal;
   font-size: 1rem;
   width: 80%;
   max-width: 300px;
@@ -124,21 +144,28 @@ body, html {
   z-index: 2;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 60%);
   box-sizing: border-box;
+  padding-bottom: ;
 }
 
   .mobile-overlay .main-title {
-  font-size: 1.5rem;
-  margin-bottom: 0.2rem;
+  font-size: 4rem;
+  margin-bottom: 0rem;
+  margin-top: 0.7rem;
+  color: #FFF89A;
 }
 
 .mobile-overlay .subtitle {
   font-size: 0.75rem;
   margin-bottom: 0.1rem;
+  color: #FFF89A;
+  font-family: "Lora", serif;
 }
 
 .mobile-overlay .role {
-  font-size: 0.85rem;
-  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: #FFF89A;
+  font-family: "Lora", serif;
 }
 
  .mobile-overlay .social-button {
