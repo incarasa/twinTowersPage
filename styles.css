@@ -15,18 +15,11 @@ body, html {
 .image-column {
   flex: 0 0 50%;
   display: flex;
-  /* justify-content: center;
-  align-items: center;
-  background-color: #000; */
   height: 100vh;
   overflow: hidden;
 }
 
 .image-column img {
- /*  max-height: 100vh;
-  width: auto;
-  object-fit: cover; */
-
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -44,17 +37,9 @@ body, html {
 }
 
 .main-title {
-  /* font-family: 'Playfair Display', serif; */
-  /* font-family: "Ballet", cursive;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal; */
-
   font-family: "Luxurious Script", cursive;
   font-weight: 400;
   font-style: normal;
-
-
   font-size: 7rem;
   margin-bottom: 0.5rem;
   color: #FFF89A;
@@ -73,7 +58,6 @@ body, html {
 
 .role {
   font-size: 2rem;
-  /* font-family: 'Playfair Display', serif; */
   font-family: "Lora", serif;
   font-weight: 100;
   margin-bottom: 2rem;
@@ -111,41 +95,43 @@ body, html {
   display: none;
 }
 
+/* === AQUÍ EMPIEZAN LOS CAMBIOS CLAVE PARA MÓVIL === */
 @media (max-width: 768px) {
-  /* 1. Ponemos la imagen directamente en la RAÍZ del documento */
-  html {
-    background-image: url("media/mainImage.jpg");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-color: transparent; /* Le quitamos el negro absoluto */
-    min-height: 100lvh;
-  }
-
-  /* 2. El body debe ser de cristal para dejar ver la imagen del html */
+  /* 1. Volvemos al negro de seguridad para matar el blanco */
+  html,
   body {
     width: 100%;
     margin: 0;
     padding: 0;
-    background-color: transparent !important; /* TRUCO CLAVE: Transparente sí o sí */
-    min-height: 100lvh;
+    background-color: #000 !important; /* Negro absoluto para las barras de Safari */
+    overflow: hidden; /* Mantenemos la pantalla fija */
   }
 
-  /* 3. Ya no necesitamos el div tramposo, el html hará el trabajo */
+  /* 2. Revivimos el fondo independiente */
   .fullscreen-bg {
-    display: none !important;
+    display: block !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100lvh; /* Cubre todo el alto dinámico */
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("media/mainImage.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
   }
 
-  /* 4. Aseguramos que el contenedor general no tape nada */
+  /* 3. Contenedor general */
   .container {
     flex-direction: column;
     position: relative;
     z-index: 1;
     width: 100%;
-    min-height: 100lvh;
+    height: 100lvh;
     background-color: transparent;
   }
-
 
   .image-column {
     flex: none;
@@ -157,7 +143,7 @@ body, html {
   }
 
   .image-column img {
-    display: none; /* Seguimos ocultando la foto normal para usar el fondo fijo */
+    display: none; 
   }
 
   .content-column {
@@ -169,6 +155,7 @@ body, html {
     margin: 0;
   }
 
+  /* 4. Overlay y espaciados seguros */
   .mobile-overlay {
     display: flex;
     flex-direction: column;
@@ -177,10 +164,8 @@ body, html {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100lvh; /* Aseguramos que el gradiente oscuro baje hasta el fondo */
+    height: 100lvh; 
     
-    /* MUY IMPORTANTE: Usamos safe-area-inset arriba y abajo para que el texto y 
-       los botones no queden tapados físicamente por la interfaz del iPhone */
     padding-top: calc(env(safe-area-inset-top) + clamp(1rem, 4lvh, 2rem));
     padding-bottom: env(safe-area-inset-bottom);
     padding-left: 0.75rem;
@@ -251,7 +236,7 @@ body, html {
   }
 }
 
-/* ANIMACIONES (Déjalas igual, estaban bien) */
+/* ANIMACIONES */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
