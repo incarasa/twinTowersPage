@@ -107,6 +107,10 @@ body, html {
   display: none; /* oculto por defecto */
 }
 
+.fullscreen-bg {
+  display: none;
+}
+
 @media (max-width: 768px) {
   html,
   body {
@@ -116,15 +120,30 @@ body, html {
     height: -webkit-fill-available;
     min-height: 100lvh;
     overflow: hidden;
+    background-color: #000;
+  }
+
+  .fullscreen-bg {
+    display: block;
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: -webkit-fill-available;
+    height: 100lvh;
+    z-index: 0;
+    pointer-events: none;
     background-image: url("media/mainImage.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: scroll;
+    transform: translateZ(0);
   }
 
   .container {
     flex-direction: column;
+    position: relative;
+    z-index: 1;
     height: 100vh;
     height: -webkit-fill-available;
     min-height: 100lvh;
@@ -141,10 +160,11 @@ body, html {
     height: 100lvh;
     position: relative;
     overflow: hidden;
-    background-color: #7f251f;
+    background-color: transparent;
   }
 
   .image-column img {
+    display: none;
     width: 100%;
     height: 100%;
     max-height: none;
