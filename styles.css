@@ -110,18 +110,27 @@ body, html {
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
+    min-height: 100svh;
   }
 
   .image-column {
-    flex: 1 1 100%;
+    flex: none;
     width: 100%; /* ← importante */
+    min-height: 100svh;
+    height: 100svh;
     position: relative;
+    overflow: hidden;
+    background-color: #7f251f;
   }
 
   .image-column img {
     width: 100%;
-    height: auto;
+    height: 100%;
     max-height: none;
+    object-fit: cover;
+    object-position: center top;
+    transform: scale(1.07);
+    transform-origin: center top;
   }
 
   .content-column {
@@ -134,50 +143,54 @@ body, html {
   }
 
   .mobile-overlay {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
   top: 0;
   left: 0;
   padding: 1rem 0.75rem; /* más compacto */
   width: 100%;
+  padding: clamp(1rem, 4svh, 2rem) 0.75rem 0;
   text-align: center;
   z-index: 2;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 60%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.18) 52%, transparent 100%);
   box-sizing: border-box;
-  padding-bottom: ;
 }
 
   .mobile-overlay .main-title {
-  font-size: 4rem;
-  margin-bottom: 0rem;
-  margin-top: 0.7rem;
+  font-size: clamp(3.2rem, 16vw, 4.6rem);
+  line-height: 0.9;
+  margin: 0.4rem 0 0;
   color: #FFF89A;
 }
 
 .mobile-overlay .subtitle {
-  font-size: 0.75rem;
-  margin-bottom: 0.1rem;
+  font-size: clamp(0.66rem, 2.9vw, 0.86rem);
+  margin: 0.4rem 0 0.12rem;
   color: #FFF89A;
   font-family: "Lora", serif;
+  letter-spacing: 0.08em;
 }
 
 .mobile-overlay .role {
-  font-size: 1.4rem;
-  margin-bottom: 1.5rem;
+  font-size: clamp(1.25rem, 6vw, 1.7rem);
+  margin: 0 0 clamp(1rem, 3svh, 1.8rem);
   color: #FFF89A;
   font-family: "Lora", serif;
 }
 
  .mobile-overlay .social-button {
-  padding: 0.4rem 0.75rem;
-  font-size: 0.75rem;
-  border-radius: 1rem;
-  max-width: 180px;
-  margin: 0.4rem auto;
+  width: min(52vw, 230px);
+  padding: clamp(0.42rem, 1.7svh, 0.68rem) 0.75rem;
+  font-size: clamp(0.76rem, 3vw, 0.95rem);
+  border-radius: 999px;
+  max-width: none;
+  margin: clamp(0.24rem, 1svh, 0.45rem) auto;
 }
 
   .mobile-overlay a {
-  margin: 0.5rem auto;
   max-width: 250px;
     }
 
@@ -188,6 +201,26 @@ body, html {
     color: white;
   }
   
+}
+
+@media (max-width: 420px) and (max-height: 760px) {
+  .image-column img {
+    transform: scale(1.1);
+  }
+
+  .mobile-overlay {
+    padding-top: 0.75rem;
+  }
+
+  .mobile-overlay .role {
+    margin-bottom: 0.75rem;
+  }
+
+  .mobile-overlay .social-button {
+    padding: 0.36rem 0.75rem;
+    margin-top: 0.22rem;
+    margin-bottom: 0.22rem;
+  }
 }
 
 /* ANIMACIONES */
