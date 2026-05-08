@@ -110,14 +110,17 @@ body, html {
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
-    min-height: 100svh;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
 
   .image-column {
     flex: none;
     width: 100%; /* ← importante */
-    min-height: 100svh;
-    height: 100svh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: 100vh;
+    height: 100dvh;
     position: relative;
     overflow: hidden;
     background-color: #7f251f;
@@ -151,7 +154,7 @@ body, html {
   left: 0;
   padding: 1rem 0.75rem; /* más compacto */
   width: 100%;
-  padding: clamp(1rem, 4svh, 2rem) 0.75rem 0;
+  padding: clamp(1rem, 4dvh, 2rem) 0.75rem 0;
   text-align: center;
   z-index: 2;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 60%);
@@ -176,18 +179,18 @@ body, html {
 
 .mobile-overlay .role {
   font-size: clamp(1.25rem, 6vw, 1.7rem);
-  margin: 0 0 clamp(1rem, 3svh, 1.8rem);
+  margin: 0 0 clamp(1rem, 3dvh, 1.8rem);
   color: #FFF89A;
   font-family: "Lora", serif;
 }
 
  .mobile-overlay .social-button {
   width: min(52vw, 230px);
-  padding: clamp(0.42rem, 1.7svh, 0.68rem) 0.75rem;
+  padding: clamp(0.42rem, 1.7dvh, 0.68rem) 0.75rem;
   font-size: clamp(0.76rem, 3vw, 0.95rem);
   border-radius: 999px;
   max-width: none;
-  margin: clamp(0.24rem, 1svh, 0.45rem) auto;
+  margin: clamp(0.24rem, 1dvh, 0.45rem) auto;
 }
 
   .mobile-overlay a {
