@@ -111,27 +111,33 @@ body, html {
   html,
   body {
     width: 100%;
+    height: 100%;
     height: 100vh;
-    height: 100lvh;
+    height: -webkit-fill-available;
+    min-height: 100lvh;
     overflow: hidden;
     background-image: url("media/mainImage.jpg");
     background-size: cover;
-    background-position: center top;
+    background-position: center center;
     background-repeat: no-repeat;
+    background-attachment: scroll;
   }
 
   .container {
     flex-direction: column;
     height: 100vh;
-    height: 100lvh;
+    height: -webkit-fill-available;
+    min-height: 100lvh;
   }
 
   .image-column {
     flex: none;
     width: 100%; /* ← importante */
     min-height: 100vh;
+    min-height: -webkit-fill-available;
     min-height: 100lvh;
     height: 100vh;
+    height: -webkit-fill-available;
     height: 100lvh;
     position: relative;
     overflow: hidden;
@@ -143,9 +149,9 @@ body, html {
     height: 100%;
     max-height: none;
     object-fit: cover;
-    object-position: center top;
+    object-position: center center;
     transform: scale(1.07);
-    transform-origin: center top;
+    transform-origin: center center;
   }
 
   .content-column {
