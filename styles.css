@@ -115,30 +115,32 @@ body, html {
   html,
   body {
     width: 100%;
-    height: 100%;
+    /* Quitamos el height: 100% y el overflow: hidden de aquí 
+       para que Safari no vuelva opacas las barras de navegación */
     margin: 0;
     padding: 0;
-    overflow: hidden;
     background-color: #000;
-    /* Eliminamos el fill-available que rompía todo */
   }
 
   .fullscreen-bg {
     display: block;
     position: fixed;
-    /* Al usar top, left, right y bottom en 0 sin 'height', 
-       obligamos a que se pegue a las 4 esquinas físicas de la pantalla */
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100vw;       /* Forzamos el ancho exacto */
+    height: 100lvh;      /* Forzamos el alto del "Large Viewport" */
     z-index: 0;
     pointer-events: none;
     background-image: url("media/mainImage.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    
+    /* TRUCO HARDWARE: Esto fuerza a iOS a procesar la capa por separado 
+       y la escala un 2% para matar cualquier micro-borde negro fantasma */
+    transform: translateZ(0) scale(1.02);
   }
+
 
   .container {
     flex-direction: column;
