@@ -112,43 +112,40 @@ body, html {
 }
 
 @media (max-width: 768px) {
-  html,
-  body {
-    width: 100%;
-    /* Quitamos el height: 100% y el overflow: hidden de aquí 
-       para que Safari no vuelva opacas las barras de navegación */
-    margin: 0;
-    padding: 0;
-    background-color: #000;
-  }
-
-  .fullscreen-bg {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;       /* Forzamos el ancho exacto */
-    height: 100lvh;      /* Forzamos el alto del "Large Viewport" */
-    z-index: 0;
-    pointer-events: none;
+  /* 1. Ponemos la imagen directamente en la RAÍZ del documento */
+  html {
     background-image: url("media/mainImage.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    
-    /* TRUCO HARDWARE: Esto fuerza a iOS a procesar la capa por separado 
-       y la escala un 2% para matar cualquier micro-borde negro fantasma */
-    transform: translateZ(0) scale(1.02);
+    background-color: transparent; /* Le quitamos el negro absoluto */
+    min-height: 100lvh;
   }
 
+  /* 2. El body debe ser de cristal para dejar ver la imagen del html */
+  body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: transparent !important; /* TRUCO CLAVE: Transparente sí o sí */
+    min-height: 100lvh;
+  }
 
+  /* 3. Ya no necesitamos el div tramposo, el html hará el trabajo */
+  .fullscreen-bg {
+    display: none !important;
+  }
+
+  /* 4. Aseguramos que el contenedor general no tape nada */
   .container {
     flex-direction: column;
     position: relative;
     z-index: 1;
     width: 100%;
-    height: 100lvh; /* Large Viewport Height: ignora las barras y cubre todo */
+    min-height: 100lvh;
+    background-color: transparent;
   }
+
 
   .image-column {
     flex: none;
