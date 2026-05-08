@@ -113,14 +113,12 @@ body, html {
     min-height: 100vh;
     min-height: 100dvh;
     overflow-x: hidden;
-    background-color: #7f251f;
   }
 
   .container {
     flex-direction: column;
     min-height: 100vh;
     min-height: 100dvh;
-    background-color: #7f251f;
   }
 
   .image-column {
